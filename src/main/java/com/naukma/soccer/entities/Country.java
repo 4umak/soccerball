@@ -1,9 +1,6 @@
 package com.naukma.soccer.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -15,7 +12,6 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "country")
 public class Country {
     @Id
     @Column(nullable = false)
@@ -23,14 +19,15 @@ public class Country {
     private Integer id;
 
     @Column(nullable = false, length = 45)
-    @NotEmpty(message = "Please provide country's name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "country")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "country")
     private Set<Championship> championshipSet = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="country")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "country")
     private Set<Article> articles = new HashSet<>();
 }

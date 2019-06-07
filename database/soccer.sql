@@ -35,10 +35,15 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `soccer`.`championship` (
   `id` INT(11) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `country` INT(11) NOT NULL,
+  `country_id` INT(11) NOT NULL,
+  `country` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `CountryToChampionship_idx` (`country` ASC) VISIBLE,
+  INDEX `CountryToChampionship_idx` (`country_id` ASC) VISIBLE,
+  INDEX `FKptkmsbfi0p1ny92dx4s56749j` (`country` ASC) VISIBLE,
   CONSTRAINT `CountryToChampionship`
+    FOREIGN KEY (`country_id`)
+    REFERENCES `soccer`.`country` (`id`),
+  CONSTRAINT `FKptkmsbfi0p1ny92dx4s56749j`
     FOREIGN KEY (`country`)
     REFERENCES `soccer`.`country` (`id`))
 ENGINE = InnoDB
@@ -68,18 +73,18 @@ CREATE TABLE IF NOT EXISTS `soccer`.`article` (
   `id` INT(11) NOT NULL,
   `create_date` DATETIME NOT NULL,
   `content` LONGTEXT NOT NULL,
-  `image` LONGBLOB NOT NULL,
-  `user` INT(11) NULL DEFAULT NULL,
-  `championship` INT(11) NULL DEFAULT NULL,
-  `country` INT(11) NULL DEFAULT NULL,
+  `image_link` VARCHAR(150) NOT NULL,
+  `user` INT(11) NOT NULL,
+  `championship_id` INT(11) NULL DEFAULT NULL,
+  `country_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `CountryToArticle_idx` (`country` ASC) VISIBLE,
-  INDEX `ChampionshipToArticle_idx` (`championship` ASC) VISIBLE,
+  INDEX `CountryToArticle_idx` (`country_id` ASC) VISIBLE,
+  INDEX `ChampionshipToArticle_idx` (`championship_id` ASC) VISIBLE,
   CONSTRAINT `ChampionshipToArticle`
-    FOREIGN KEY (`championship`)
+    FOREIGN KEY (`championship_id`)
     REFERENCES `soccer`.`championship` (`id`),
   CONSTRAINT `CountryToArticle`
-    FOREIGN KEY (`country`)
+    FOREIGN KEY (`country_id`)
     REFERENCES `soccer`.`country` (`id`),
   CONSTRAINT `userToArticle`
     FOREIGN KEY (`id`)
@@ -130,19 +135,19 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `soccer`.`match`
+-- Table `soccer`.`match_story`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soccer`.`match` (
+CREATE TABLE IF NOT EXISTS `soccer`.`match_story` (
   `id` INT(11) NOT NULL,
   `t1_name` VARCHAR(45) NOT NULL,
   `t2_name` VARCHAR(45) NOT NULL,
   `score` VARCHAR(45) NOT NULL,
   `match_date` DATETIME NOT NULL,
-  `championship` INT(11) NOT NULL,
+  `championship_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `ChampionshipToMatch_idx` (`championship` ASC) VISIBLE,
+  INDEX `ChampionshipToMatch_idx` (`championship_id` ASC) VISIBLE,
   CONSTRAINT `ChampionshipToMatch`
-    FOREIGN KEY (`championship`)
+    FOREIGN KEY (`championship_id`)
     REFERENCES `soccer`.`championship` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -156,7 +161,13 @@ CREATE TABLE IF NOT EXISTS `soccer`.`role` (
   `user_id` INT(11) NOT NULL,
   `role_id` INT(11) NOT NULL,
   PRIMARY KEY (`user_id`, `role_id`),
-  INDEX `roleID_idx` (`role_id` ASC) VISIBLE)
+  INDEX `roleID_idx` (`role_id` ASC) VISIBLE,
+  CONSTRAINT `AuthorityToRole`
+    FOREIGN KEY (`role_id`)
+    REFERENCES `soccer`.`authorities` (`id`),
+  CONSTRAINT `UserToRole`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `soccer`.`user` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;

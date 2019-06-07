@@ -33,11 +33,11 @@ public class Article {
     private String image_link;
 
     @ManyToOne
-    @JoinColumn(name = "championship", referencedColumnName = "id")
+    @JoinColumn(name = "championship_id", referencedColumnName = "id")
     private Championship championship;
 
     @ManyToOne
-    @JoinColumn(name = "country", referencedColumnName = "id")
+    @JoinColumn(name = "country_id", referencedColumnName = "id")
     private Country country;
 
     /*@ManyToOne
