@@ -1,10 +1,10 @@
 package com.naukma.soccer.repositories;
 
-import com.naukma.soccer.enteties.User;
+import com.naukma.soccer.enteties.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-    User findByEmail(String email);
+public interface UserRepository extends JpaRepository<Client, Integer> {
+    Client findByEmail(String email);
 }

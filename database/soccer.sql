@@ -52,9 +52,9 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `soccer`.`user`
+-- Table `soccer`.`client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soccer`.`user` (
+CREATE TABLE IF NOT EXISTS `soccer`.`client` (
   `id` INT(11) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `first_name` VARCHAR(45) NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`article` (
     REFERENCES `soccer`.`country` (`id`),
   CONSTRAINT `userToArticle`
     FOREIGN KEY (`id`)
-    REFERENCES `soccer`.`user` (`id`))
+    REFERENCES `soccer`.`client` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -114,10 +114,10 @@ CREATE TABLE IF NOT EXISTS `soccer`.`comment` (
   `create_date` DATETIME NOT NULL,
   `content` MEDIUMTEXT NOT NULL,
   `article` INT(11) NOT NULL,
-  `user` INT(11) NOT NULL,
+  `client` INT(11) NOT NULL,
   `answer` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `UserToComment_idx` (`user` ASC) VISIBLE,
+  INDEX `UserToComment_idx` (`client` ASC) VISIBLE,
   INDEX `ArticleToComment_idx` (`article` ASC) VISIBLE,
   INDEX `CommentToComment_idx` (`answer` ASC) VISIBLE,
   CONSTRAINT `ArticleToComment`
@@ -127,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `soccer`.`comment` (
     FOREIGN KEY (`answer`)
     REFERENCES `soccer`.`comment` (`id`),
   CONSTRAINT `UserToComment`
-    FOREIGN KEY (`user`)
-    REFERENCES `soccer`.`user` (`id`))
+    FOREIGN KEY (`client`)
+    REFERENCES `soccer`.`client` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;

@@ -1,6 +1,9 @@
 package com.naukma.soccer.enteties;
 
+import lombok.Builder;
 import lombok.Data;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -10,8 +13,9 @@ import java.util.List;
 
 @Data
 @Entity
+@Builder
 @Table(name = "user")
-public class User {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,8 +36,13 @@ public class User {
     @NotEmpty(message = "Please provide your password")
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_id")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ManyToMany
+    @JoinTable(
+            name = "role",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id") }
+    )
     private List<Role> roleList;
 
 }
