@@ -2,12 +2,15 @@ package com.naukma.soccer.spring_security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.naukma.soccer.enteties.Client;
+import com.naukma.soccer.enteties.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class SecurityUser implements UserDetails {
@@ -16,14 +19,22 @@ public class SecurityUser implements UserDetails {
     private User user;
 
     SecurityUser(Client client) {
-        user = new User(client.getEmail(), client.getPassword(), getAuthorities());
+        user = new User(client.getEmail(), client.getPassword(), getAuthorities(client.getRoleList()));
         this.client = client;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return client.getRoleList().stream().map(authority -> new SimpleGrantedAuthority(authority.getName()))
-                .collect(Collectors.toList());
+        return user.getAuthorities();
+    }
+
+    private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles) {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (Role role: roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+
+        return authorities;
     }
 
     @JsonIgnore
@@ -39,17 +50,17 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

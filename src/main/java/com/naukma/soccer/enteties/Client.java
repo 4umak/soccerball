@@ -1,7 +1,6 @@
 package com.naukma.soccer.enteties;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.validator.constraints.Length;
@@ -11,9 +10,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 @Table(name = "user")
 public class Client {
 
@@ -44,5 +48,4 @@ public class Client {
             inverseJoinColumns = {@JoinColumn(name = "role_id") }
     )
     private List<Role> roleList;
-
 }
