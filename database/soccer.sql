@@ -54,7 +54,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 -- Table `soccer`.`client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `soccer`.`client` (
+CREATE TABLE IF NOT EXISTS `soccer`.user (
   `id` INT(11) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `first_name` VARCHAR(45) NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`article` (
     REFERENCES `soccer`.`country` (`id`),
   CONSTRAINT `userToArticle`
     FOREIGN KEY (`id`)
-    REFERENCES `soccer`.`client` (`id`))
+    REFERENCES `soccer`.user (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`comment` (
     REFERENCES `soccer`.`comment` (`id`),
   CONSTRAINT `UserToComment`
     FOREIGN KEY (`client`)
-    REFERENCES `soccer`.`client` (`id`))
+    REFERENCES `soccer`.user (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
