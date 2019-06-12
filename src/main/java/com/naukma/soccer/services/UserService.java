@@ -8,4 +8,5 @@ public interface UserService {
 
     Client findByEmail(String email);
     List<Client> findAll();
+    Client getSessionUser();
 }

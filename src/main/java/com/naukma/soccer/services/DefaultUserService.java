@@ -2,7 +2,10 @@ package com.naukma.soccer.services;
 
 import com.naukma.soccer.entities.Client;
 import com.naukma.soccer.repositories.UserRepository;
+import com.sun.security.auth.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +32,14 @@ public class DefaultUserService implements UserService {
 
     @Override
     public List<Client> findAll() {
+        getSessionUser();
         return userRepository.findAll();
     }
 
+    @Override
+    public Client getSessionUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return findByEmail(authentication.getName());
+    }
 
 }
