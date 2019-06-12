@@ -8,7 +8,9 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -48,4 +50,9 @@ public class Client {
             inverseJoinColumns = {@JoinColumn(name = "role_id") }
     )
     private List<Role> roleList;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "user")
+    private Set<Article> articles = new HashSet<>();
 }

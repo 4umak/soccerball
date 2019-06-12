@@ -1,13 +1,12 @@
 package com.naukma.soccer.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -41,6 +40,11 @@ public class Article {
     private Country country;
 
     @ManyToOne
-    @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-    private Client client;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private Client user;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "article")
+    private Set<Comment> comments = new HashSet<>();
 }
