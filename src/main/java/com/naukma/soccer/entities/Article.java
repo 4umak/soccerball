@@ -40,7 +40,7 @@ public class Article {
     @JoinColumn(name = "country_id", referencedColumnName = "id")
     private Country country;
 
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-    private User user;*/
+    private Client client;
 }

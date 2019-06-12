@@ -1,7 +1,7 @@
 package com.naukma.soccer.converters;
 
 import com.naukma.soccer.dto.RoleDto;
-import com.naukma.soccer.enteties.Role;
+import com.naukma.soccer.entities.Role;
 import org.springframework.stereotype.Component;
 
 @Component

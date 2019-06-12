@@ -1,4 +1,4 @@
-package com.naukma.soccer.enteties;
+package com.naukma.soccer.entities;
 
 import lombok.*;
 import org.hibernate.annotations.LazyCollection;

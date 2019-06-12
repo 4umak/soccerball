@@ -1,7 +1,7 @@
 package com.naukma.soccer;
 
-import com.naukma.soccer.enteties.Client;
-import com.naukma.soccer.enteties.Role;
+import com.naukma.soccer.entities.Client;
+import com.naukma.soccer.entities.Role;
 import com.naukma.soccer.repositories.UserRepository;
 import org.junit.Before;
 import org.junit.Test;

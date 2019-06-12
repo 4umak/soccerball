@@ -2,8 +2,8 @@ package com.naukma.soccer.converters;
 
 import com.naukma.soccer.dto.RoleDto;
 import com.naukma.soccer.dto.UserDto;
-import com.naukma.soccer.enteties.Client;
-import com.naukma.soccer.enteties.Role;
+import com.naukma.soccer.entities.Client;
+import com.naukma.soccer.entities.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.naukma.soccer.spring_security;
 
-import com.naukma.soccer.enteties.Client;
+import com.naukma.soccer.entities.Client;
 import com.naukma.soccer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

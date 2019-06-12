@@ -1,6 +1,6 @@
 package com.naukma.soccer.services;
 
-import com.naukma.soccer.enteties.Client;
+import com.naukma.soccer.entities.Client;
 import com.naukma.soccer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

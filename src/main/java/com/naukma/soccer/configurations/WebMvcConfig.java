@@ -1,4 +1,4 @@
-package com.naukma.soccer.configuration;
+package com.naukma.soccer.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

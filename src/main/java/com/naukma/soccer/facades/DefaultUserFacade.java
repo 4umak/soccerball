@@ -2,7 +2,7 @@ package com.naukma.soccer.facades;
 
 import com.naukma.soccer.converters.UserToUserDtoConverter;
 import com.naukma.soccer.dto.UserDto;
-import com.naukma.soccer.enteties.Client;
+import com.naukma.soccer.entities.Client;
 import com.naukma.soccer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
