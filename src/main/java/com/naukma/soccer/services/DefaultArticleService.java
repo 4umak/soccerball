@@ -1,6 +1,7 @@
 package com.naukma.soccer.services;
 
 import com.naukma.soccer.entities.Article;
+import com.naukma.soccer.entities.Client;
 import com.naukma.soccer.exceptions.EntityExistsException;
 import com.naukma.soccer.exceptions.NoSuchEntityException;
 import com.naukma.soccer.repositories.ArticleRepository;
@@ -18,6 +19,9 @@ public class DefaultArticleService implements ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public Page<Article> findAll(final Specification<Article> articleSpecification, final Pageable pageable) {
         return articleRepository.findAll(articleSpecification, pageable);
@@ -34,6 +38,8 @@ public class DefaultArticleService implements ArticleService {
     public Article createArticle(final Article article) {
         if (articleRepository.existsById(article.getId()))
             throw new EntityExistsException(String.format("Article with id %s already exists", article.getId()));
+        Client user = userService.getSessionUser();
+        article.setUser(user);
         return articleRepository.save(article);
     }
 }
