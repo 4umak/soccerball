@@ -39,7 +39,7 @@ public class ArticleController {
         return articleFacade.getArticleById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public ArticleDto createArticle(@Valid
                                     @RequestBody final CreateUpdateArticleDto createUpdateArticleDto) {
         return articleFacade.createArticle(createUpdateArticleDto);

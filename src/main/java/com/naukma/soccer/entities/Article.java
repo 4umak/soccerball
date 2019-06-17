@@ -1,10 +1,22 @@
 package com.naukma.soccer.entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,8 +32,7 @@ public class Article {
     private Integer id;
 
     @Column(nullable = false)
-    @NotEmpty(message = "Please provide creation date")
-    private Date create_date;
+    private LocalDate create_date;
 
     @Column(nullable = false, length = 1000)
     @NotEmpty(message = "Please provide article's content")

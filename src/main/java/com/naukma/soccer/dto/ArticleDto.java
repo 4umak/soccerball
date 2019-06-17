@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @Builder
 @AllArgsConstructor
 public class ArticleDto {
     private Integer id;
-    private Date create_date;
+    private LocalDate create_date;
     private String content;
     private String image_link;
     private String championship;

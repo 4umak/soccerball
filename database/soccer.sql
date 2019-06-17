@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`user` (
   `last_name` VARCHAR(45) NOT NULL,
   `first_name` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4

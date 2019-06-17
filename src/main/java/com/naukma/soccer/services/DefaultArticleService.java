@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -40,6 +41,7 @@ public class DefaultArticleService implements ArticleService {
             throw new EntityExistsException(String.format("Article with id %s already exists", article.getId()));
         Client user = userService.getSessionUser();
         article.setUser(user);
+        article.setCreate_date(LocalDate.now());
         return articleRepository.save(article);
     }
 }
