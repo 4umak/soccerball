@@ -41,14 +41,19 @@ function add_hot_news_items(img,title,content) {
         ' <button class="news-button">More</button>\n' +
         '</div>')
 }
-add_carousel_items('Europe','Ukraine','Bowaria')
-add_carousel_items('Europe','Ukraine','Russia')
-add_carousel_items('Europe','Ukraine','Ukraine')
-add_carousel_items('Europe','Ukraine','Denys')
-add_carousel_items('Europe','Ukraine','Navi')
-add_carousel_items('Europe','Ukraine','Bowaria')
-add_carousel_items('Europe','Ukraine','Bowaria')
-add_carousel_items('Europe','Ukraine','Bowaria')
+
+var request = new XMLHttpRequest();
+request.open('GET', 'http://localhost:8083/api/countries', true);
+request.onload = function() {
+    // Begin accessing JSON data here
+    var data = JSON.parse(this.response);
+    data.forEach(country => {
+        add_carousel_items(country.country_name,'Ukraine','Bowaria')
+})
+}
+
+request.send()
+
 
 add_hot_news_items('img/testimage.jpg','Ukraine','That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
     '\n' +

@@ -21,6 +21,8 @@ public class ApiController {
             "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
     private static final String URL_ACTION = "https://apiv2.apifootball.com/?action=%s" +
             "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
+    private static final String URL_TWO_PARAM = "https://apiv2.apifootball.com/?action=%s&%s&%s" +
+            "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -56,6 +58,14 @@ public class ApiController {
     public JsonNode getTeamsByLeague(@NotNull @PathVariable final int league) {
         ResponseEntity<String> response = restTemplate.getForEntity(
                 String.format(URL_WITH_PARAM, "get_teams", "league_id=" + league), String.class);
+
+        return getJsonNode(response);
+    }
+
+    @GetMapping("/battle")
+    public JsonNode getBattleBetweenCommands() {
+        ResponseEntity<String> response = restTemplate.getForEntity(
+                String.format(URL_TWO_PARAM, "get_H2H", "firstTeam=Chelsea", "secondTeam=Arsenal"), String.class);
 
         return getJsonNode(response);
     }
