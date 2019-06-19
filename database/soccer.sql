@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`article` (
   `user_id` INT(11) NOT NULL,
   `championship_id` INT(11) NULL DEFAULT NULL,
   `country_id` INT(11) NULL DEFAULT NULL,
+  `name` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`),
   INDEX `CountryToArticle_idx` (`country_id` ASC) VISIBLE,
   INDEX `ChampionshipToArticle_idx` (`championship_id` ASC) VISIBLE,
@@ -177,11 +178,6 @@ CREATE TABLE IF NOT EXISTS `soccer`.`role` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
-ALTER TABLE `soccer`.`article`
-ADD COLUMN `name` VARCHAR(100) NOT NULL AFTER `user`;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
