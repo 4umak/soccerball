@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class ArticleDto {
     private Integer id;
     private LocalDate create_date;
+    private String name;
     private String content;
     private String image_link;
     private String championship;

@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api")
@@ -22,6 +23,8 @@ public class ApiController {
     private static final String URL_ACTION = "https://apiv2.apifootball.com/?action=%s" +
             "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
     private static final String URL_TWO_PARAM = "https://apiv2.apifootball.com/?action=%s&%s&%s" +
+            "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
+    private static final String URL_THREE_PARAM = "https://apiv2.apifootball.com/?action=%s&%s&%s&%s" +
             "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
 
     @Autowired
@@ -67,6 +70,24 @@ public class ApiController {
         ResponseEntity<String> response = restTemplate.getForEntity(
                 String.format(URL_TWO_PARAM, "get_H2H", "firstTeam=Chelsea", "secondTeam=Arsenal"), String.class);
 
+        return getJsonNode(response);
+    }
+
+    @GetMapping("/live")
+    public JsonNode getLiveMatches() {
+        LocalDate today = LocalDate.now();
+        String query = String.format(URL_THREE_PARAM, "get_events", "match_live=1", "from=" + today, "to=" + today);
+        ResponseEntity<String> response = restTemplate.getForEntity(
+                query, String.class);
+        return getJsonNode(response);
+    }
+
+    @GetMapping("/today")
+    public JsonNode getTodayMatches() {
+        LocalDate today = LocalDate.now();
+        String query = String.format(URL_TWO_PARAM, "get_events", "from=" + today, "to=" + today);
+        ResponseEntity<String> response = restTemplate.getForEntity(
+                query, String.class);
         return getJsonNode(response);
     }
 

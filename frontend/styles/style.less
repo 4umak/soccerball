@@ -5,48 +5,55 @@
 @color-text-header: white;
 @size-header: 20%;
 @size-footer: 10ch;
-header{
+header {
   position: relative;
   height: @size-header;
 }
-#header-match-block{
+
+#header-match-block {
   height: 66%;
-  background-color: @color-background ;
+  background-color: @color-background;
 }
-#header-menu{
+
+#header-menu {
   height: 33%;
   min-height: 55px;
   background-color: @color-menu;
 }
-footer{
+
+footer {
   background-color: @color-footer;
   height: @size-footer;
 }
-#main-content{
+
+#main-content {
   background-color: @color-background;
   min-height: 100px;
 }
-header .header-match-one-item{
 
-  background-color: @color-main ;
+header .header-match-one-item {
+
+  background-color: @color-main;
 }
-.header-match-one-item{
+
+.header-match-one-item {
   height: 100%;
   padding: 10px 20px 10px 20px;
   color: @color-text-header;
   border-right: @color-background 0.5px dashed;
   border-left: @color-background 0.5px dashed;
 }
+
 .owl-nav .owl-next, .owl-nav .owl-prev {
   position: absolute;
-  color:red;
+  color: red;
   top: 0;
   bottom: 0;
   width: 50px;
   height: 100%;
 }
 
-.owl-carousel .owl-nav button.owl-next{
+.owl-carousel .owl-nav button.owl-next {
   background-image: url(../img/right.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -54,7 +61,8 @@ header .header-match-one-item{
   right: -50px;
   transition-duration: 0.5s;
 }
-.owl-carousel .owl-nav button.owl-prev{
+
+.owl-carousel .owl-nav button.owl-prev {
   transition-duration: 0.5s;
   background-image: url(../img/left.png);
   background-size: contain;
@@ -62,30 +70,36 @@ header .header-match-one-item{
   padding: 20px 20px 20px 20px;
   left: -50px;
 }
-.header-carousel{
+
+.header-carousel {
   width: 73.4%;
   height: 100%;
   margin-left: 100px;
 }
-.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev{
+
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
   border: #671B1B 1px dotted;
 
 }
-.owl-carousel .owl-nav button.owl-next:hover, .owl-carousel .owl-nav button.owl-prev:hover{
+
+.owl-carousel .owl-nav button.owl-next:hover, .owl-carousel .owl-nav button.owl-prev:hover {
   transition-duration: 0.5s;
   transition-property: background-color;
   background-color: #f4f4f4;
 
 }
-#header-match-block .header-carousel,#header-match-block .header-all-matches{
+
+#header-match-block .header-carousel, #header-match-block .header-all-matches {
   display: inline-block;
   vertical-align: top;
 }
-.header-carousel{
+
+.header-carousel {
 
   height: 100%;
 }
-.header-all-matches{
+
+.header-all-matches {
   width: 8%;
   height: 100%;
   transition-duration: 1s;
@@ -100,17 +114,19 @@ header .header-match-one-item{
 
 }
 
-.header-all-matches:hover{
+.header-all-matches:hover {
   transition-duration: 1s;
-  color:@color-background;
+  color: @color-background;
   background-color: @color-main;
 }
-#header-menu button{
+
+#header-menu button {
   color: @color-text-header;
 
   margin-top: 1.2%;
 
 }
+
 #header-menu button,
 #header-menu button:active,
 #header-menu button:focus {
@@ -121,56 +137,66 @@ header .header-match-one-item{
   color: white;
   border-color: transparent;
   border-style: solid;
-  border-right: white 1px solid ;
+  border-right: white 1px solid;
 
 }
-.header-menu-buttons{
+
+.header-menu-buttons {
   margin-left: 25%;
 }
-footer{
+
+footer {
   color: white;
 }
-footer .footer-info{
+
+footer .footer-info {
   margin-left: 20px;
   padding-top: 20px;
 }
-.news-list{
 
-  -webkit-box-shadow: 4px 9px 17px 1px rgba(115,68,115,0.63);
-  -moz-box-shadow: 4px 9px 17px 1px rgba(115,68,115,0.63);
-  box-shadow: 4px 9px 17px 1px rgba(115,68,115,0.63);
+.news-list {
+
+  -webkit-box-shadow: 4px 9px 17px 1px rgba(115, 68, 115, 0.63);
+  -moz-box-shadow: 4px 9px 17px 1px rgba(115, 68, 115, 0.63);
+  box-shadow: 4px 9px 17px 1px rgba(115, 68, 115, 0.63);
   width: 25%;
   height: 100%;
   border-radius: 2px;
   background: white;
   margin: 10px 10px 10px 10px;
 }
-.hot-news{
+
+.hot-news {
   width: 70%;
 
 
 }
-#main-content .news-list,#main-content .hot-news{
+
+#main-content .news-list, #main-content .hot-news {
   display: inline-block;
 }
-.news-list-title{
+
+.news-list-title {
   margin: 4px 80px 4px 80px;
   border-radius: 20px;
   color: white;
   background-color: @color-main;
   font-weight: bold;
   text-align: center;
-  -webkit-box-shadow: -1px 0px 11px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 0px 11px -3px rgba(0,0,0,0.75);
-  box-shadow: -1px 0px 11px -3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 0px 11px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 0px 11px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 0px 11px -3px rgba(0, 0, 0, 0.75);
 }
-.news-list-one-items{
+
+.news-list-one-items {
   font-weight: bold;
   margin-left: 10px;
   margin-top: 5px;
   word-wrap: break-word;
+  cursor: pointer;
 }
-.news-button{
+
+.news-button {
   width: 60px;
   border-radius: 6px;
   color: white;
@@ -181,38 +207,43 @@ footer .footer-info{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.hot-news{
+
+.hot-news {
   margin-top: 20px;
   margin-bottom: 20px;
   vertical-align: top;
   border-left: white 1px dashed;
   height: 100%
 }
-.hot-news-one-item{
+
+.hot-news-one-item {
   width: 45%;
   display: inline-block;
-  -webkit-box-shadow: 4px 9px 17px 1px rgba(115,68,115,0.63);
-  -moz-box-shadow: 4px 9px 17px 1px rgba(115,68,115,0.63);
-  box-shadow: 4px 9px 17px 1px rgba(115,68,115,0.63);
+  -webkit-box-shadow: 4px 9px 17px 1px rgba(115, 68, 115, 0.63);
+  -moz-box-shadow: 4px 9px 17px 1px rgba(115, 68, 115, 0.63);
+  box-shadow: 4px 9px 17px 1px rgba(115, 68, 115, 0.63);
 
   border-radius: 2px;
   background: white;
   margin: 0 10px 10px 10px;
 
 }
-.hot-news-one-item img{
+
+.hot-news-one-item img {
   height: 40%;
   width: 80%;
   margin-left: 10%;
   margin-top: 5%;
 }
-.hot-news-one-item-title{
+
+.hot-news-one-item-title {
   text-align: center;
   font-weight: bold;
   margin-top: 10px;
 
 }
-.hot-news-one-item-content{
+
+.hot-news-one-item-content {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 80%;
@@ -220,6 +251,6 @@ footer .footer-info{
 
 @media screen and (max-width: 720px) {
   body {
-   //TODO
+    //TODO
   }
 }

@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class CreateUpdateArticleDto {
     private Integer id;
+    private String name;
     private LocalDate create_date;
     private String content;
     private String image_link;

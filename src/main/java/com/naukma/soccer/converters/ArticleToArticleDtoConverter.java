@@ -10,12 +10,13 @@ public class ArticleToArticleDtoConverter implements Converter<Article, ArticleD
     public ArticleDto convert(Article article) {
         return ArticleDto.builder()
                 .id(article.getId())
-                .championship(article.getChampionship().getName())
+                .championship(article.getChampionship() == null ? "" : article.getChampionship().getName())
                 .content(article.getContent())
-                .country(article.getCountry().getName())
+                .country(article.getCountry() == null ? "" : article.getCountry().getName())
                 .create_date(article.getCreate_date())
                 .image_link(article.getImage_link())
                 .user(article.getUser().getEmail())
+                .name(article.getName())
                 .build();
     }
 }

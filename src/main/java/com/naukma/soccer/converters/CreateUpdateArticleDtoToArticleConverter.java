@@ -21,6 +21,7 @@ public class CreateUpdateArticleDtoToArticleConverter implements Converter<Creat
                 .content(createUpdateArticleDto.getContent())
                 .create_date(createUpdateArticleDto.getCreate_date())
                 .image_link(createUpdateArticleDto.getImage_link())
+                .name(createUpdateArticleDto.getName())
                 .championship(toChampionshipConverter.convert(createUpdateArticleDto.getChampionship()))
                 .country(toCountryConverter.convert(createUpdateArticleDto.getCountry()))
                 .build();
