@@ -35,6 +35,14 @@ $(window).scroll(function() {                  // assign scroll event listener
     }
 
 });
+function add_news_list_item(title) {
+    $("#news-list-item").append(' <div class="news-list-one-item">\n' +
+        '        <a class="news-list-one-item-title">\n' +
+        '           '+title+'\n' +
+        '        </a>\n' +
+        '    </div>')
+}
+
 function add_news_list_items(title, id) {
     $("#news-list-items").append(' <div class="news-list-one-items">\n' +
         '        <a class="news-list-one-items-title">\n' +
@@ -198,3 +206,12 @@ add_hot_news_item('img/testimage.jpg','Ukraine','That\'s it. If it can be multip
 
 add_comments('Flo','Hi')
 add_comments('Flo','Test')
+add_news_list_item("Woaw")
+add_news_list_item("Test")
+add_news_list_item("Test")
+add_news_list_item("123")
+add_news_list_item("asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
+add_news_list_item("Woaw")
+add_news_list_item("asdsafas")
+add_news_list_item("afsfasd")
+add_news_list_item("Woasfasfsadaw")
