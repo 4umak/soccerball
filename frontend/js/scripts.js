@@ -1,15 +1,5 @@
-$(function(){
 
-    $('.header-match-one-item').hover(function() {
-        
-        $(this).find('.header-match-one-item-desc').hide();
-        $(this).find('.header-match-one-item-links').show();
-    }, function() {
-        $(this).find('.header-match-one-item-links').hide();
-        $(this).find('.header-match-one-item-desc').show();
-    });
-    $("#footer").load("include/footer.html");
-});
+
 $('.owl-carousel').owlCarousel({
     margin: 0,
     loop: false,
@@ -56,18 +46,37 @@ function add_news_list_items(title, id) {
 function add_carousel_items(t1, t2, time) {
 
 
-    $("#items-carousel").trigger('add.owl.carousel', ['<div class="header-match-one-item">\n' +
-    '    <div class="header-tournament-name">\n' +
-    '        ⚽ ' + time +
-    '    </div>\n' +
-    '    <div class="header-fst-team-name">\n' +
-    '        ' + t1 +
-    '    </div>\n' +
-    '    <div class="header-snd-team-name">\n' +
-    '       ' + t2 +
-    '    </div>\n' +
-    '</div>'])
+    $("#items-carousel").trigger('add.owl.carousel', [' <div class="header-match-one-item">\n' +
+    '                        <div class="header-match-one-item-desc">\n' +
+    '                            <div class="header-tournament-name">\n' +
+    '                                ⚽ \n' + time +
+    '                            </div>\n' +
+    '                            <div class="header-fst-team-name">\n' +
+    '                                \n' + t1 +
+    '                            </div>\n' +
+    '                            <div class="header-snd-team-name">\n' +
+    '                                \n' + t2 +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                        <div class="header-match-one-item-links">\n' +
+    '                            <a>МАТЧ</a>\n' +
+    '                        </div>\n' +
+    '                    </div>'])
         .trigger('refresh.owl.carousel');
+    $(function(){
+
+
+        $("#footer").load("include/footer.html");
+        $('.header-match-one-item').hover(function() {
+
+            console.log(1)
+            $(this).find('.header-match-one-item-desc').hide();
+            $(this).find('.header-match-one-item-links').show();
+        }, function() {
+            $(this).find('.header-match-one-item-links').hide();
+            $(this).find('.header-match-one-item-desc').show();
+        });
+    });
 }
 
 function add_hot_news_items(img, title, content) {
