@@ -45,7 +45,7 @@ function add_news_list_items(title, id) {
 
 function add_carousel_items(t1, t2, time) {
 
-
+    $("#footer").load("include/footer.html");
     $("#items-carousel").trigger('add.owl.carousel', [' <div class="header-match-one-item">\n' +
     '                        <div class="header-match-one-item-desc">\n' +
     '                            <div class="header-tournament-name">\n' +
@@ -124,6 +124,60 @@ function fillMatches() {
     };
     request.send();
 }
+
+//рендерим матч
+function  add_full_match(title,imgT1,imgT2,scoreT1,scoreT2,T1,T2,date){
+    $("#mathc-news-items").append('<div class="match-news-one-item">\n' +
+        '    <div class="match-news-title"><h1>'+title+'</h1></div>\n' +
+        '    <div class="team-imgs">\n' +
+        '        <img class="img-team1" src="'+imgT1+'" alt="test" height="200" width="300">\n' +
+        '        <div class="match-news-score-box">\n' +
+        '            <div class="match-news-score" id="match-news-team1-score">'+scoreT1+'</div>\n' +
+        '            <div class="match-news-score">:</div>\n' +
+        '            <div class="match-news-score" id="match-news-team2-score">'+scoreT2+'</div>\n' +
+        '        </div>\n' +
+        '\n' +
+        '        <img class="img-team2" src="'+imgT2+'" alt="test" height="200" width="300">\n' +
+        '    </div>\n' +
+        '\n' +
+        '    <div id="just-opacity-team1" class="just-opacity">\n' +
+        '        <img  src="'+imgT1+' alt="test" height="200" width="300">\n' +
+        '    </div>\n' +
+        '    <div id="just-opacity-team2" class="just-opacity">\n' +
+        '        <img  src="'+imgT2+'" alt="test" height="200" width="300">\n' +
+        '    </div>\n' +
+        '\n' +
+        '\n' +
+        '    <div class="teams">\n' +
+        '        <div class="match-news-teams" id="match-news-team1">'+T1+'</div>\n' +
+        '\n' +
+        '        <div class="match-news-teams" id="match-news-team2">'+T2+'</div>\n' +
+        '    </div>\n' +
+        '    <div class="match-news-date">'+date+'</div>\n' +
+        '    <div  class="live">\n' +
+        '        <iframe\n' +
+        '                src="https://player.twitch.tv/?channel=dallas&muted=true"\n' +
+        '                height="310"\n' +
+        '                width="640"\n' +
+        '                frameborder="0"\n' +
+        '                scrolling="no"\n' +
+        '                allowfullscreen="true">\n' +
+        '        </iframe>\n' +
+        '    </div>\n' +
+        '</div>')
+}
+
+//коментарь
+function add_comments(username,content) {
+    $("#coments-items").append(' <div class="coment-one-item">\n' +
+        '    <div class="username">'+username+'</div>\n' +
+        '    <hr>\n' +
+        '    <div class="comments-content">'+content+'</div>\n' +
+        '    </div>')
+}
+fillMatches();
+fillNews();
+//для одної новості
 add_hot_news_item('img/testimage.jpg','Ukraine','That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
     '\n' +
     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.'+
@@ -136,5 +190,11 @@ add_hot_news_item('img/testimage.jpg','Ukraine','That\'s it. If it can be multip
     '\n' +'\n' +
     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.')
 
-fillMatches();
-fillNews();
+//match_detail
+
+ add_full_match("TITLE/DATE","img/team1.jpg","img/team2.jpg","0","0","Ukraine","Russia","20.06.2019")
+
+//addcoments
+
+add_comments('Flo','Hi')
+add_comments('Flo','Test')
