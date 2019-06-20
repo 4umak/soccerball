@@ -1,3 +1,15 @@
+$(function(){
+
+    $('.header-match-one-item').hover(function() {
+        
+        $(this).find('.header-match-one-item-desc').hide();
+        $(this).find('.header-match-one-item-links').show();
+    }, function() {
+        $(this).find('.header-match-one-item-links').hide();
+        $(this).find('.header-match-one-item-desc').show();
+    });
+    $("#footer").load("include/footer.html");
+});
 $('.owl-carousel').owlCarousel({
     margin: 0,
     loop: false,
@@ -9,7 +21,30 @@ $('.owl-carousel').owlCarousel({
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>']
 
 });
+var topMenu = $('#header-menu').offset().top;       // get initial position of the element
+var element = document.getElementById('header-menu');
+var positionInfo = element.getBoundingClientRect();
+var height = positionInfo.height;
+var width = positionInfo.width;
+console.log(height)
+$(window).scroll(function() {                  // assign scroll event listener
 
+    var currentScroll = $(window).scrollTop(); // get current position
+
+    if (currentScroll >= topMenu) {           // apply position: fixed if you
+        $('#header-menu').css({                      // scroll to that element or below it
+            position: 'fixed',
+            width : '100%',
+            top: '0',
+            height : height
+        });
+    } else {                                   // apply position: static
+        $('#header-menu').css({                      // if you scroll above it
+            position: 'static'
+        });
+    }
+
+});
 function add_news_list_items(title, id) {
     $("#news-list-items").append(' <div class="news-list-one-items">\n' +
         '        <a class="news-list-one-items-title">\n' +
