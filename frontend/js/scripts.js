@@ -44,6 +44,14 @@ function add_hot_news_items(img, title, content) {
         ' <button class="news-button">More</button>\n' +
         '</div>')
 }
+function add_hot_news_item(img,title,content) {
+
+    $("#hot-news-item").append('<div class="hot-news-one-item1">\n' +
+        '    <img src="'+img+'" alt="hot_img">\n' +
+        '    <div class="hot-news-one-item-title1">'+title+'</div>\n' +
+        '    <div class="hot-news-one-item-content1"> ' + content +
+        '</div>')
+}
 
 function fillNews() {
     let request = new XMLHttpRequest();
@@ -72,7 +80,17 @@ function fillMatches() {
     };
     request.send();
 }
-
+add_hot_news_item('img/testimage.jpg','Ukraine','That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
+    '\n' +
+    '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.'+
+    '\n' +'\n' +
+    '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.'+
+    '\n' +'\n' +
+    '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.'+
+    '\n' +'\n' +
+    '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.'+
+    '\n' +'\n' +
+    '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.')
 
 fillMatches();
 fillNews();
