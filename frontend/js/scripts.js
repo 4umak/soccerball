@@ -54,6 +54,10 @@ function showArticle(href, id) {
     window.location = href + 'news_detail.html?newsId=' + id;
 }
 
+function showMatch(href, id) {
+    window.location = href + 'match_details.html?matchId=' + id;
+}
+
 function add_carousel_items(id, t1, t2, time) {
 
     $("#footer").load("include/footer.html");
@@ -71,7 +75,7 @@ function add_carousel_items(id, t1, t2, time) {
     '                            </div>\n' +
     '                        </div>\n' +
     '                        <div class="header-match-one-item-links">\n' +
-    '                            <a href="../frontend/match_details.html" onclick="location.href=this.href+\'?matchId=\'+ document.getElementById(\'match-id\').innerText;return false;">МАТЧ</a>\n' +
+    '                            <a id = "' + id + '"onclick="showMatch(this.href, this.id)">МАТЧ</a>\n' +
     '                        </div>\n' +
     '                    </div>'])
         .trigger('refresh.owl.carousel');
@@ -149,6 +153,27 @@ function fillNewsDetailsPageByNewsId(id) {
     request.send();
 }
 
+function fillMatchDetailsPageByMatchId(id) {
+    let request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:8083/api/today', true);
+    request.onload = function () {
+        // Begin accessing JSON data here
+        let data = JSON.parse(this.response);
+        for (let i = 0; i < data.length; i++)
+            if (data[i].match_id === id) {
+                let title = data[i].country_name + " " + data[i].league_name + ", " + data[i].match_time;
+                let t1_goals = (parseInt(data[i].match_hometeam_score) == data[i].match_hometeam_score) ? data[i].match_hometeam_score : "0";
+                let t2_goals = (parseInt(data[i].match_awayteam_score) == data[i].match_awayteam_score) ? data[i].match_awayteam_score : "0";
+                add_full_match(title, "img/team1.jpg", "img/team2.jpg", t1_goals,
+                    t2_goals, data[i].match_hometeam_name, data[i].match_awayteam_name, data[i].match_date)
+                break;
+            }
+    };
+    request.send();
+}
+
+
+
 //рендерим матч
 function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
     $("#mathc-news-items").append('<div class="match-news-one-item">\n' +
@@ -202,7 +227,8 @@ function add_comments(username, content) {
 
 fillMatches();
 fillNews();
-fillNewsDetailsPageByNewsId(window.location.search.split('=')[1]);
+fillNewsDetailsPageByNewsId(window.location.search.split('newsId=')[1]);
+fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
 //для одної новості
 // add_hot_news_item('img/testimage.jpg', 'Ukraine', 'That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
 //     '\n' +
@@ -218,19 +244,19 @@ fillNewsDetailsPageByNewsId(window.location.search.split('=')[1]);
 
 //match_detail
 
-add_full_match("TITLE/DATE", "img/team1.jpg", "img/team2.jpg", "0", "0", "Ukraine", "Russia", "20.06.2019")
+//add_full_match("TITLE/DATE", "img/team1.jpg", "img/team2.jpg", "0", "0", "Ukraine", "Russia", "20.06.2019")
 
 //addcoments
 
-add_comments('Flo', 'Hi')
-add_comments('Flo', 'Test')
-add_news_list_item("Woaw")
-add_news_list_item("Test")
-add_news_list_item("Test")
-add_news_list_item("123")
-add_news_list_item("asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
-add_news_list_item("Woaw")
-add_news_list_item("asdsafas")
-add_news_list_item("afsfasd")
-add_news_list_item("Woasfasfsadaw")
+// add_comments('Flo', 'Hi')
+// add_comments('Flo', 'Test')
+// add_news_list_item("Woaw")
+// add_news_list_item("Test")
+// add_news_list_item("Test")
+// add_news_list_item("123")
+// add_news_list_item("asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
+// add_news_list_item("Woaw")
+// add_news_list_item("asdsafas")
+// add_news_list_item("afsfasd")
+// add_news_list_item("Woasfasfsadaw")
 
