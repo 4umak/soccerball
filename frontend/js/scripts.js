@@ -43,12 +43,15 @@ function add_news_list_item(title) {
 }
 
 function add_news_list_items(title, id) {
-    $("#news-list-items").append(' <div class="news-list-one-items">\n' +
-        '        <a class="news-list-one-items-title" href="../frontend/news_detail.html" onclick="location.href=this.href+\'?newsId=\'+ document.getElementById(\'news-id\').innerText;return false;">\n' +
+    $("#news-list-items").append(' <div class="news-list-one-items" >\n' +
+        '        <a class="news-list-one-items-title" id = "' + id + '"  onclick="showArticle(this.href, this.id)">\n' +
         '           ' + title + '\n' +
         '        </a>\n' +
-        ' <div id="news-id">' + id + '</div>\n' +
         '    </div>')
+}
+
+function showArticle(href, id) {
+    window.location = href + 'news_detail.html?newsId=' + id;
 }
 
 function add_carousel_items(id, t1, t2, time) {
@@ -56,7 +59,7 @@ function add_carousel_items(id, t1, t2, time) {
     $("#footer").load("include/footer.html");
     $("#items-carousel").trigger('add.owl.carousel', [' <div class="header-match-one-item">\n' +
     '                        <div class="header-match-one-item-desc">\n' +
-        '<div></div>' +
+    '<div></div>' +
     '                            <div id="time_{{id}}" class="header-tournament-name">\n' +
     '                                ⚽ \n' + time +
     '                            </div>\n' +
@@ -146,9 +149,6 @@ function fillNewsDetailsPageByNewsId(id) {
     request.send();
 }
 
-
-fillNewsDetailsPageByNewsId(window.location.search.split('=')[1]);
-
 //рендерим матч
 function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
     $("#mathc-news-items").append('<div class="match-news-one-item">\n' +
@@ -202,6 +202,7 @@ function add_comments(username, content) {
 
 fillMatches();
 fillNews();
+fillNewsDetailsPageByNewsId(window.location.search.split('=')[1]);
 //для одної новості
 // add_hot_news_item('img/testimage.jpg', 'Ukraine', 'That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
 //     '\n' +
