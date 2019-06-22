@@ -151,6 +151,7 @@ function fillNewsDetailsPageByNewsId(id) {
         add_hot_news_item(data.image_link, data.name, data.content)
     };
     request.send();
+    fillCommentsByArticleId(id);
 }
 
 function fillMatchDetailsPageByMatchId(id) {
@@ -172,7 +173,18 @@ function fillMatchDetailsPageByMatchId(id) {
     request.send();
 }
 
-
+function fillCommentsByArticleId(id){
+    let request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:8083/comments/article/' + id, true);
+    request.onload = function () {
+        // Begin accessing JSON data here
+        let data = JSON.parse(this.response);
+        for (let i = 0; i < data.length; i++){
+            add_comments(data[i].client.email,data[i].content);
+        }
+    };
+    request.send();
+}
 
 //рендерим матч
 function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
@@ -229,6 +241,7 @@ fillMatches();
 fillNews();
 fillNewsDetailsPageByNewsId(window.location.search.split('newsId=')[1]);
 fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
+//fillCommentsByArticleId(window.location.search.split('newsId=')[1]);
 //для одної новості
 // add_hot_news_item('img/testimage.jpg', 'Ukraine', 'That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
 //     '\n' +
