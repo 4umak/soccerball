@@ -163,8 +163,8 @@ function fillMatchDetailsPageByMatchId(id) {
         for (let i = 0; i < data.length; i++)
             if (data[i].match_id === id) {
                 let title = data[i].country_name + " " + data[i].league_name + ", " + data[i].match_time;
-                let t1_goals = (parseInt(data[i].match_hometeam_score) == data[i].match_hometeam_score) ? data[i].match_hometeam_score : "0";
-                let t2_goals = (parseInt(data[i].match_awayteam_score) == data[i].match_awayteam_score) ? data[i].match_awayteam_score : "0";
+                let t1_goals = (parseInt(data[i].match_hometeam_score) === data[i].match_hometeam_score) ? data[i].match_hometeam_score : "0";
+                let t2_goals = (parseInt(data[i].match_awayteam_score) === data[i].match_awayteam_score) ? data[i].match_awayteam_score : "0";
                 add_full_match(title, "img/team1.jpg", "img/team2.jpg", t1_goals,
                     t2_goals, data[i].match_hometeam_name, data[i].match_awayteam_name, data[i].match_date)
                 break;
@@ -173,17 +173,32 @@ function fillMatchDetailsPageByMatchId(id) {
     request.send();
 }
 
-function fillCommentsByArticleId(id){
+function fillCommentsByArticleId(id) {
     let request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:8083/comments/article/' + id, true);
     request.onload = function () {
         // Begin accessing JSON data here
         let data = JSON.parse(this.response);
-        for (let i = 0; i < data.length; i++){
-            add_comments(data[i].client.email,data[i].content);
+        for (let i = 0; i < data.length; i++) {
+            add_comments(data[i].client.email, data[i].content);
         }
     };
     request.send();
+}
+
+function fillTodayMatches() {
+    let request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:8083/api/today', true);
+    request.onload = function () {
+        // Begin accessing JSON data here
+        let data = JSON.parse(this.response);
+        for (let i = 0; i < data.length; i++) {
+            let t1_score = parseInt(data[i].match_hometeam_score) === match_hometeam_score ? match_hometeam_score : "0";
+            let t2_score = parseInt(data[i].match_awayteam_score) === match_awayteam_score ? match_awayteam_score : "0";
+            addMatchToList(data[i].conutry_name, data[i].league_name, data[i].match_time,
+                data[i].match_hometeam_name, data[i].match_awayteam_name, t1_score, t2_score);
+        }
+    };
 }
 
 //рендерим матч
@@ -235,6 +250,10 @@ function add_comments(username, content) {
         '    <hr>\n' +
         '    <div class="comments-content">' + content + '</div>\n' +
         '    </div>')
+}
+
+function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score) {
+
 }
 
 fillMatches();
