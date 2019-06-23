@@ -336,23 +336,10 @@ addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2',false)
 addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2',true)
 //addcoments
 
- add_comments('Flo', 'Hi')
-// add_comments('Flo', 'Test')
-// add_news_list_item("Woaw")
-// add_news_list_item("Test")
-// add_news_list_item("Test")
-// add_news_list_item("123")
-// add_news_list_item("asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
-// add_news_list_item("Woaw")
-// add_news_list_item("asdsafas")
-// add_news_list_item("afsfasd")
-// add_news_list_item("Woasfasfsadaw")
-<<<<<<< HEAD
+
 set_username('flo')
 add_championship_select("1", "LaLiga")
 country_select("1", "Spain")
-=======
 
->>>>>>> 0eae15226759dc6fdf5a28fba7b27b82d2c1bc51
 
 //set_username('Flo')
