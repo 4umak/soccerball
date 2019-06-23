@@ -37,39 +37,5 @@ function fillChamps() {
     request.send();
 }
 
-/*
-function add_article() {
-    let image = $('#im').val();
-    let date = $('#date').val();
-    let country = $('#country').val();
-    let champ = $('#champ').val();
-    let name = $('#name').val();
-    let content = $('#content').val();
-    let data = {
-        name: name,
-        create_date: date,
-        content: content,
-        image_link: image,
-        championship: champ,
-        country: country
-    };
-    let xhr = new XMLHttpRequest();
-    $.ajax({
-        url: 'http://localhost:8083/articles/add',
-        type: 'POST',
-        data: JSON.stringify(data),
-        datatype: 'json',
-        success: function (result) {
-            alert(result);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            alert("prrr" + xhr.status);
-            alert(thrownError);
-        }
-    });
-
-}
-*/
-
 fillChamps();
 fillCountries();

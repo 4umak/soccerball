@@ -2,7 +2,6 @@ package com.naukma.soccer.services;
 
 import com.naukma.soccer.entities.Article;
 import com.naukma.soccer.entities.Client;
-import com.naukma.soccer.exceptions.EntityExistsException;
 import com.naukma.soccer.exceptions.NoSuchEntityException;
 import com.naukma.soccer.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +36,7 @@ public class DefaultArticleService implements ArticleService {
 
     @Override
     public Article createArticle(final Article article) {
-        if (articleRepository.existsById(article.getId()))
-            throw new EntityExistsException(String.format("Article with id %s already exists", article.getId()));
-        Client user = userService.getSessionUser();
+        Client user = userService.findById(1);//userService.getSessionUser();
         article.setUser(user);
         article.setCreate_date(LocalDate.now());
         return articleRepository.save(article);
