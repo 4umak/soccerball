@@ -75,8 +75,9 @@ public class ApiController {
 
     @GetMapping("/live")
     public JsonNode getLiveMatches() {
+        //TODO
         LocalDate today = LocalDate.now();
-        String query = String.format(URL_THREE_PARAM, "get_events", "match_live=1", "from=" + today, "to=" + today);
+        String query = String.format(URL_TWO_PARAM, "get_events","from=" + today, "to=" + today);
         ResponseEntity<String> response = restTemplate.getForEntity(
                 query, String.class);
         return getJsonNode(response);

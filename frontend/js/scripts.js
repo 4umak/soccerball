@@ -104,11 +104,13 @@ function add_hot_news_items(img, title, content) {
         ' <a class="news-button">More</a>\n' +
         '</div>')
 }
+
 function add_championship_select(value, name) {
     var select = document.getElementById("champ");
     select.options[select.options.length] = new Option(name, value);
-    
+
 }
+
 function country_select(value, name) {
     var select = document.getElementById("country");
     select.options[select.options.length] = new Option(name, value);
@@ -204,12 +206,13 @@ function fillTodayMatches() {
         // Begin accessing JSON data here
         let data = JSON.parse(this.response);
         for (let i = 0; i < data.length; i++) {
-            let t1_score = parseInt(data[i].match_hometeam_score) === match_hometeam_score ? match_hometeam_score : "0";
-            let t2_score = parseInt(data[i].match_awayteam_score) === match_awayteam_score ? match_awayteam_score : "0";
-            addMatchToList(data[i].conutry_name, data[i].league_name, data[i].match_time,
-                data[i].match_hometeam_name, data[i].match_awayteam_name, t1_score, t2_score);
+            let t1_score = 0; //parseInt(data[i].match_hometeam_score) === match_hometeam_score ? match_hometeam_score : "0";
+            let t2_score = 0; //parseInt(data[i].match_awayteam_score) === match_awayteam_score ? match_awayteam_score : "0";
+            addMatchToList(data[i].country_name, data[i].league_name, data[i].match_time,
+                data[i].match_hometeam_name, data[i].match_awayteam_name, t1_score, t2_score, true);
         }
     };
+    request.send();
 }
 
 //рендерим матч
@@ -263,31 +266,34 @@ function add_comments(username, content) {
         '    </div>')
 }
 
-function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score) {
+function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score, live) {
     $("#match-list-items").append('<div class="match-list-one-item" >\n' +
         '\n' +
-        '                <div class="header-match-one-item-date"> '+match_time+'</div>\n' +
+        '                <div class="header-match-one-item-date"> ' + match_time + '</div>\n' +
         '\n' +
         '                <div class="header-match-one-item-title">\n' +
-        '                    <div class="header-match-one-item-title-one"> '+country+' - '+championship+'</div>\n' +
+        '                    <div class="header-match-one-item-title-one"> ' + country + '  ' + championship + '</div>\n' +
         '                </div>\n' +
         '\n' +
         '                <div class="header-match-one-item-teams">\n' +
         '                    <div class="match-help">\n' +
-        '                        <div class="header-match-one-item-team1"> '+t1+'</div>\n' +
-        '                        <div class="header-match-one-item-team1-score">'+t1_score+'</div>\n' +
+        '                        <div class="header-match-one-item-team1"> ' + t1 + '</div>\n' +
+        '                        <div class="header-match-one-item-team1-score">' + t1_score + '</div>\n' +
         '                        <div class="header-match-one-item-team1-score">-</div>\n' +
-        '                        <div class="header-match-one-item-team2-score">'+t2_score+'</div>\n' +
-        '                        <div class="header-match-one-item-team2"> '+t2+'</div>\n' +
+        '                        <div class="header-match-one-item-team2-score">' + t2_score + '</div>\n' +
+        '                        <div class="header-match-one-item-team2"> ' + t2 + '</div>\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '                <hr>\n' +
         '            </div>')
 }
+
+
 fillMatches();
 fillNews();
 fillNewsDetailsPageByNewsId(window.location.search.split('newsId=')[1]);
 fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
+fillTodayMatches();
 //fillCommentsByArticleId(window.location.search.split('newsId=')[1]);
 //для одної новості
 // add_hot_news_item('img/testimage.jpg', 'Ukraine', 'That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
@@ -305,7 +311,7 @@ fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
 //match_detail
 
 //add_full_match("TITLE/DATE", "img/team1.jpg", "img/team2.jpg", "0", "0", "Ukraine", "Russia", "20.06.2019")
-addMatchToList("Ukraine"," Cubok ","12:12","test1",'test2','1','2')
+//addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2')
 
 //addcoments
 
