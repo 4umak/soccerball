@@ -27,7 +27,7 @@ public class Comment {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
     private Client client;
 
     @ManyToOne
