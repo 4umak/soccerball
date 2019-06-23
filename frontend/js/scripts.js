@@ -255,6 +255,10 @@ function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
 }
 
 //коментарь
+function add_new_comments(username) {
+    var  content = $(".comment-content").val()
+    add_comments(username,content)
+}
 function add_comments(username, content) {
     $("#coments-items").append(' <div class="coment-one-item">\n' +
         '    <div class="username">' + username + '</div>\n' +
@@ -309,7 +313,7 @@ addMatchToList("Ukraine"," Cubok ","12:12","test1",'test2','1','2')
 
 //addcoments
 
-// add_comments('Flo', 'Hi')
+ add_comments('Flo', 'Hi')
 // add_comments('Flo', 'Test')
 // add_news_list_item("Woaw")
 // add_news_list_item("Test")
