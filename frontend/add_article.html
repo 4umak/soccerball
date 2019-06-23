@@ -16,28 +16,35 @@
     <title>Title</title>
 </head>
 <body>
-<header>
-    <div id="header-match-block">
-        <div class="header-carousel">
-            <div id="items-carousel" class="owl-carousel owl-loaded owl-drag">
+<header id="header">
+    <div>
+        <div id="header-match-block">
+            <div class="header-carousel">
+                <div id="items-carousel" class="owl-carousel owl-loaded owl-drag">
 
+
+                </div>
             </div>
+            <button class="header-all-matches" type="button" onclick="window.location = 'all_matches.html'">
+                ALL<br>
+                MATCHES
+            </button>
         </div>
-        <button class="header-all-matches" type="button" onclick="window.location = 'all_matches.html'">
-            ALL<br>
-            MATCHES
-        </button>
-    </div>
-    <div id="header-menu">
-        <div class="header-menu-buttons">
+        <div id="header-menu">
+
+            <div class="logo-container">
+                <div class="logo_img"></div>
+
+            </div><!--
+        --><div class="header-menu-buttons">
+
             <button type="button" onclick="window.location='index.html'">News</button><!--
-        -->
-            <button>Live</button><!--
-        -->
-            <button>Sign up</button><!--
-        -->
-            <button>Sign in</button><!--
-        --></div>
+        --><div class="username-name"></div><!--
+        --> <button><a href="http://localhost:63342/soccer/frontend/registration.html?_ijt=aoanslvu97njuljfidsdf1b2oo">Sign up</a></button><!--
+        --><button><a href="http://localhost:8083/login">Sign in</a></button><!--
+        --><button><a href="http://localhost:8083/perform_logout">Log out</a></button>
+        </div>
+        </div>
     </div>
 </header>
 <div id="main-content"></div>
