@@ -17,7 +17,6 @@ var width = positionInfo.width;
 console.log(height)
 
 
-
 $(window).scroll(function () {                  // assign scroll event listener
 
     var currentScroll = $(window).scrollTop(); // get current position
@@ -130,10 +129,12 @@ function fillNews() {
     request.send();
 
 }
+
 function set_username(username) {
     $('.username-name').text(username)
 
 }
+
 function fillMatches() {
     let interesting_countries = ["41", "68", "135", "51", "46", "100", "13", "115", "151", "120", "168"];
     let request = new XMLHttpRequest();
@@ -200,10 +201,11 @@ function fillTodayMatches() {
         // Begin accessing JSON data here
         let data = JSON.parse(this.response);
         for (let i = 0; i < data.length; i++) {
-            let t1_score = 0; //parseInt(data[i].match_hometeam_score) === match_hometeam_score ? match_hometeam_score : "0";
-            let t2_score = 0; //parseInt(data[i].match_awayteam_score) === match_awayteam_score ? match_awayteam_score : "0";
+            let t1_score = data[i].match_hometeam_score;
+            let t2_score = data[i].match_awayteam_score;
+            let live = data[i].match_live === "1";
             addMatchToList(data[i].country_name, data[i].league_name, data[i].match_time,
-                data[i].match_hometeam_name, data[i].match_awayteam_name, t1_score, t2_score, true);
+                data[i].match_hometeam_name, data[i].match_awayteam_name, t1_score, t2_score, live);
         }
     };
     request.send();
@@ -253,9 +255,10 @@ function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
 
 //коментарь
 function add_new_comments(username) {
-    var  content = $(".comment-content").val()
-    add_comments(username,content)
+    var content = $(".comment-content").val();
+    add_comments(username, content)
 }
+
 function add_comments(username, content) {
     $("#coments-items").append(' <div class="coment-one-item">\n' +
         '    <div class="username">' + username + '</div>\n' +
@@ -278,13 +281,13 @@ function addComment() {
 
 function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score, live) {
 
-    var live_t = ''
+    var live_t = '';
     if (live)
-        live_t = 'live'
+        live_t = 'live';
 
     $("#match-list-items").append('<div class="match-list-one-item" >\n' +
         '\n' +
-        '    <div class="header-match-one-item-date"> '+match_time+'</div>\n' +
+        '    <div class="header-match-one-item-date"> ' + match_time + '</div>\n' +
         '\n' +
         '    <div class="header-match-one-item-title">\n' +
         '        <div class="header-match-one-item-title-one">' + country + '  ' + championship + '</div>\n' +
@@ -292,19 +295,19 @@ function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_
         '\n' +
         '    <div class="header-match-one-item-teams">\n' +
         '        <div class="match-help">\n' +
-        '            <div class="header-match-one-item-team1"> '+t1+'</div>\n' +
+        '            <div class="header-match-one-item-team1"> ' + t1 + '</div>\n' +
         '            <div class="header-match-one-item-teams-vs"> vs </div>\n' +
-        '            <div class="header-match-one-item-team2"> '+t2+'</div>\n' +
+        '            <div class="header-match-one-item-team2"> ' + t2 + '</div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '    <div class="scores">\n' +
         '        <div class="scores-help">\n' +
-        '            <div class="header-match-one-item-team1-score">'+t1_score+'</div>\n' +
+        '            <div class="header-match-one-item-team1-score">' + t1_score + '</div>\n' +
         '            <div class="header-match-one-item-team1-score">-</div>\n' +
-        '            <div class="header-match-one-item-team2-score">'+t2_score+'</div>\n' +
+        '            <div class="header-match-one-item-team2-score">' + t2_score + '</div>\n' +
         '        </div>\n' +
         '    </div>\n' +
-        '    <div class="live"> '+live_t+' </div>\n' +
+        '    <div class="live"> ' + live_t + ' </div>\n' +
         '    <hr>\n' +
         '</div>')
 }
