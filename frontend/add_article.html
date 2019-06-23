@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/owl.carousel.min.css">
+    <link rel="stylesheet" href="styles/owl.theme.default.min.css">
+    <link rel="stylesheet/less" type="text/css" href="styles/style.less" />
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <div id="header-match-block">
+        <div class="header-carousel">
+          <div id="items-carousel" class="owl-carousel owl-loaded owl-drag">
+
+        </div>
+    </div>
+        <button class="header-all-matches">
+               ALL<br>
+            MATCHES
+        </button>
+    </div>
+    <div id="header-menu">
+        <div class="header-menu-buttons">
+        <button>News</button><!--
+        --><button>Live</button><!--
+        --> <button>Sign up</button><!--
+        --><button>Sign in</button><!--
+        --></div>
+    </div>
+</header>
+<div id="main-content">
+<div class="news-list">
+    <div class="news-list-title">News</div>
+    <div id="news-list-items">
+
+
+    </div>
+    <button class="news-button">All</button>
+</div>
+    <div class="add-full">
+        <body>
+        <form action = /add enctype="multipart/form-data" method="post">
+            Image:<br>
+            <p><input type="file" name="image_link"></p>
+            Create date:<br>
+            <input type="text" name="create_date"><br>
+            Country:<br>
+            <select id = "country" name = "countryname">
+            </select ><br>
+            Championship:<br>
+            <select id = "champ" name = "champname" >
+            </select><br>
+            Name:<br>
+            <input type="text" name="name"><br>
+            Content:<br>
+            <p><textarea name="content" cols="80" rows="15"></textarea></p>
+            <input type="submit" value="Create"></p>
+        </form>
+        </body>
+    </div>
+<footer id="footer" class="footer">
+    <p class="footer-info">© Na`vi team — All Rights Reserved.</p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

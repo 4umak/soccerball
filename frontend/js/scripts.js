@@ -104,6 +104,16 @@ function add_hot_news_items(img, title, content) {
         ' <a class="news-button">More</a>\n' +
         '</div>')
 }
+function add_championship_select(value, name) {
+    var select = document.getElementById("champ");
+    select.options[select.options.length] = new Option(name, value);
+    
+}
+function country_select(value, name) {
+    var select = document.getElementById("country");
+    select.options[select.options.length] = new Option(name, value);
+
+}
 
 function add_hot_news_item(img, title, content) {
 
@@ -125,6 +135,7 @@ function fillNews() {
         }
     };
     request.send();
+
 }
 
 function fillMatches() {
@@ -309,4 +320,6 @@ addMatchToList("Ukraine"," Cubok ","12:12","test1",'test2','1','2')
 // add_news_list_item("asdsafas")
 // add_news_list_item("afsfasd")
 // add_news_list_item("Woasfasfsadaw")
+add_championship_select("1", "LaLiga")
+country_select("1", "Spain")
 
