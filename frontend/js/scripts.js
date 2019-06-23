@@ -15,6 +15,9 @@ var positionInfo = element.getBoundingClientRect();
 var height = positionInfo.height;
 var width = positionInfo.width;
 console.log(height)
+
+
+
 $(window).scroll(function () {                  // assign scroll event listener
 
     var currentScroll = $(window).scrollTop(); // get current position
@@ -139,7 +142,10 @@ function fillNews() {
     request.send();
 
 }
+function set_username(username) {
+    $('.username-name').text(username)
 
+}
 function fillMatches() {
     let interesting_countries = ["41", "68", "135", "51", "46", "100", "13", "115", "151", "120", "168"];
     let request = new XMLHttpRequest();
@@ -341,6 +347,8 @@ addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2',true)
 // add_news_list_item("asdsafas")
 // add_news_list_item("afsfasd")
 // add_news_list_item("Woasfasfsadaw")
+set_username('flo')
 add_championship_select("1", "LaLiga")
 country_select("1", "Spain")
 
+//set_username('Flo')
