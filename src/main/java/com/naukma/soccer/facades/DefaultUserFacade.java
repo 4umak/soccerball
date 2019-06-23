@@ -1,6 +1,8 @@
 package com.naukma.soccer.facades;
 
+import com.naukma.soccer.converters.CreateUserDtoToClientConverter;
 import com.naukma.soccer.converters.UserToUserDtoConverter;
+import com.naukma.soccer.dto.CreateUserDto;
 import com.naukma.soccer.dto.UserDto;
 import com.naukma.soccer.entities.Client;
 import com.naukma.soccer.services.UserService;
@@ -17,6 +19,9 @@ public class DefaultUserFacade implements UserFacade {
     private UserToUserDtoConverter converter;
 
     @Autowired
+    private CreateUserDtoToClientConverter toClientConverter;
+
+    @Autowired
     private UserService userService;
 
     @Override
@@ -31,5 +36,10 @@ public class DefaultUserFacade implements UserFacade {
     @Override
     public UserDto findByEmail(String email) {
         return converter.convert(userService.findByEmail(email));
+    }
+
+    @Override
+    public void registerUser(CreateUserDto userDto) {
+        userService.saveUser(toClientConverter.convert(userDto));
     }
 }

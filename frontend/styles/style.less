@@ -14,11 +14,15 @@ header {
   height: 66%;
   background-color: @color-background;
 }
-
+.header-menu-buttons{
+  position: relative;
+  padding: 0 !important;
+  height: 100%;
+}
 #header-menu {
-  height: 33%;
+
   min-height: 55px;
-  background-color: @color-menu;
+
 }
 
 footer {
@@ -123,7 +127,7 @@ header .header-match-one-item {
 #header-menu button {
   color: @color-text-header;
 
-  margin-top: 1.2%;
+  margin: 0 auto;
 
 }
 
@@ -142,7 +146,9 @@ header .header-match-one-item {
 }
 
 .header-menu-buttons {
-  margin-left: 25%;
+
+  background-color: @color-menu !important;
+
 }
 
 footer {
@@ -622,4 +628,27 @@ footer{
 textarea{
   width: 100%;
   height: 100%;
+}
+.logo-container{
+
+  width: 29%;
+ height: 55px;
+  background: rgba(255,255,255,0.28);
+  background: -moz-linear-gradient(left, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 23%, rgba(197,94,94,0.65) 51%, rgba(197,94,94,0.79) 71%, rgba(197,94,94,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0.28)), color-stop(23%, rgba(255,255,255,0.45)), color-stop(51%, rgba(197,94,94,0.65)), color-stop(71%, rgba(197,94,94,0.79)), color-stop(100%, rgba(197,94,94,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 23%, rgba(197,94,94,0.65) 51%, rgba(197,94,94,0.79) 71%, rgba(197,94,94,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 23%, rgba(197,94,94,0.65) 51%, rgba(197,94,94,0.79) 71%, rgba(197,94,94,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 23%, rgba(197,94,94,0.65) 51%, rgba(197,94,94,0.79) 71%, rgba(197,94,94,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 23%, rgba(197,94,94,0.65) 51%, rgba(197,94,94,0.79) 71%, rgba(197,94,94,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c55e5e', GradientType=1 );
+}
+
+.logo-container,.header-menu-buttons{
+  vertical-align: top;
+  display: inline-block;
+}
+.header-menu-buttons{
+  width: 71%;
+  height: 55px !important;
+
 }

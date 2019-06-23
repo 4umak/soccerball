@@ -24,11 +24,10 @@ import java.util.Set;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "username")
-    @Email(message = "Please provide a valid email")
     @NotEmpty(message = "Please provide email")
     private String email;
 
@@ -43,16 +42,14 @@ public class Client {
     private String password;
 
     @LazyCollection(LazyCollectionOption.FALSE)
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "role",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id") }
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id") }
     )
     private List<Role> roleList;
 
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "user")
     private Set<Article> articles = new HashSet<>();
 }
