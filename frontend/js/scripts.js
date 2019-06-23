@@ -217,7 +217,7 @@ function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
         '    </div>\n' +
         '\n' +
         '    <div id="just-opacity-team1" class="just-opacity">\n' +
-        '        <img  src="' + imgT1 + ' alt="test" height="200" width="300">\n' +
+        '        <img  src="' + imgT1 + '" alt="test" height="200" width="300">\n' +
         '    </div>\n' +
         '    <div id="just-opacity-team2" class="just-opacity">\n' +
         '        <img  src="' + imgT2 + '" alt="test" height="200" width="300">\n' +
@@ -253,9 +253,26 @@ function add_comments(username, content) {
 }
 
 function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score) {
-
+    $("#match-list-items").append('<div class="match-list-one-item" >\n' +
+        '\n' +
+        '                <div class="header-match-one-item-date"> '+match_time+'</div>\n' +
+        '\n' +
+        '                <div class="header-match-one-item-title">\n' +
+        '                    <div class="header-match-one-item-title-one"> '+country+' - '+championship+'</div>\n' +
+        '                </div>\n' +
+        '\n' +
+        '                <div class="header-match-one-item-teams">\n' +
+        '                    <div class="match-help">\n' +
+        '                        <div class="header-match-one-item-team1"> '+t1+'</div>\n' +
+        '                        <div class="header-match-one-item-team1-score">'+t1_score+'</div>\n' +
+        '                        <div class="header-match-one-item-team1-score">-</div>\n' +
+        '                        <div class="header-match-one-item-team2-score">'+t2_score+'</div>\n' +
+        '                        <div class="header-match-one-item-team2"> '+t2+'</div>\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '                <hr>\n' +
+        '            </div>')
 }
-
 fillMatches();
 fillNews();
 fillNewsDetailsPageByNewsId(window.location.search.split('newsId=')[1]);
@@ -277,6 +294,7 @@ fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
 //match_detail
 
 //add_full_match("TITLE/DATE", "img/team1.jpg", "img/team2.jpg", "0", "0", "Ukraine", "Russia", "20.06.2019")
+addMatchToList("Ukraine","pomyika","12:12","test1",'test2','1','2')
 
 //addcoments
 
