@@ -12,11 +12,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUpdateArticleDto {
-    private Integer id;
     private String name;
     private LocalDate create_date;
     private String content;
     private String image_link;
-    private ChampionshipDto championship;
-    private CountryDto country;
+    private Integer championship;
+    private Integer country;
 }

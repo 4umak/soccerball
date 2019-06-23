@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/owl.carousel.min.css">
     <link rel="stylesheet" href="styles/owl.theme.default.min.css">
-    <link rel="stylesheet/less" type="text/css" href="styles/style.less" />
+    <link rel="stylesheet/less" type="text/css" href="styles/style.less"/>
     <!-- Bootsrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -19,46 +19,52 @@
 <header>
     <div id="header-match-block">
         <div class="header-carousel">
-          <div id="items-carousel" class="owl-carousel owl-loaded owl-drag">
+            <div id="items-carousel" class="owl-carousel owl-loaded owl-drag">
 
+            </div>
         </div>
-    </div>
-        <button class="header-all-matches">
-               ALL<br>
+        <button class="header-all-matches" type="button" onclick="window.location = 'all_matches.html'">
+            ALL<br>
             MATCHES
         </button>
     </div>
     <div id="header-menu">
         <div class="header-menu-buttons">
-        <button>News</button><!--
-        --><button>Live</button><!--
-        --> <button>Sign up</button><!--
-        --><button>Sign in</button><!--
+            <button type="button" onclick="window.location='index.html'">News</button><!--
+        -->
+            <button>Live</button><!--
+        -->
+            <button>Sign up</button><!--
+        -->
+            <button>Sign in</button><!--
         --></div>
     </div>
 </header>
 <div id="main-content">
-<div class="news-list">
-    <div class="news-list-title">News</div>
-    <div id="news-list-items">
+    <div class="news-list">
+        <div class="news-list-title">News</div>
+        <div id="news-list-items">
 
 
-    </div>
-    <button class="news-button">All</button>
-</div><!--
-        --><div id="hot-news-item" class="hot-news">
+        </div>
+        <button class="news-button">All</button>
+    </div><!--
+        -->
+    <div id="hot-news-item" class="hot-news">
 
 
-</div><!--
+    </div><!--
             --></div>
 <div class="comments-block">
-<div id="coments-items">
-</div>
+    <div id="coments-items">
+    </div>
     <div class="add-comments">
 
-        <div class="add-comments-title"> <div class="add-comments-title-title">Comment</div></div>
+        <div class="add-comments-title">
+            <div class="add-comments-title-title">Comment</div>
+        </div>
         <div class="textarea-container">
-        <textarea class="comment-content"></textarea>
+            <textarea class="comment-content"></textarea>
         </div>
         <button class="add-comments-btn" onclick="add_new_comments('flo')">add</button>
     </div>
