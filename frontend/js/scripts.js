@@ -95,7 +95,6 @@ function add_hot_news_items(img, title, content) {
         '    <img src="' + img + '" alt="hot_img">\n' +
         '    <div class="hot-news-one-item-title">' + title + '</div>\n' +
         '    <div class="hot-news-one-item-content"> ' + content +
-        ' <a class="news-button">More</a>\n' +
         '</div>')
 }
 
