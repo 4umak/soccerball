@@ -310,30 +310,5 @@ fillNews();
 fillNewsDetailsPageByNewsId(window.location.search.split('newsId=')[1]);
 fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
 fillTodayMatches();
-//fillCommentsByArticleId(window.location.search.split('newsId=')[1]);
-//для одної новості
-// add_hot_news_item('img/testimage.jpg', 'Ukraine', 'That\'s it. If it can be multiple lines, then it is somewhat more complicated. But there are solutions on http://pmob.co.uk/ Look for "vertical align".\n' +
-//     '\n' +
-//     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.' +
-//     '\n' + '\n' +
-//     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.' +
-//     '\n' + '\n' +
-//     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.' +
-//     '\n' + '\n' +
-//     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.' +
-//     '\n' + '\n' +
-//     '        Since they tend to be hacks or adding complicated divs... I usually use a table with a single cell to do it... to make it as simple as possible.')
-
-//match_detail
-
-//add_full_match("TITLE/DATE", "img/team1.jpg", "img/team2.jpg", "0", "0", "Ukraine", "Russia", "20.06.2019")
-
-//addcoments
-
-
 set_username('flo')
-add_championship_select("1", "LaLiga")
-country_select("1", "Spain")
 
-
-//set_username('Flo')
