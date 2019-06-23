@@ -1,8 +1,8 @@
 package com.naukma.soccer.services;
 
 import com.naukma.soccer.entities.Client;
+import com.naukma.soccer.exceptions.NoSuchEntityException;
 import com.naukma.soccer.repositories.UserRepository;
-import com.sun.security.auth.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +24,11 @@ public class DefaultUserService implements UserService {
         String password = client.getPassword();
         client.setPassword(passwordEncoder.encode(password));
         userRepository.save(client);
+    }
+
+    public Client findById(int id) {
+        return userRepository.findById(id).orElseThrow(() -> new NoSuchEntityException(
+                String.format("The user with id %s doesn't exist", id)));
     }
 
     public Client findByEmail(String s) {
