@@ -85,15 +85,7 @@ function add_carousel_items(id, t1, t2, time) {
 
 
         $("#footer").load("include/footer.html");
-        $('.header-match-one-item').hover(function () {
 
-            console.log(1)
-            $(this).find('.header-match-one-item-desc').hide();
-            $(this).find('.header-match-one-item-links').show();
-        }, function () {
-            $(this).find('.header-match-one-item-links').hide();
-            $(this).find('.header-match-one-item-desc').show();
-        });
     });
 }
 
@@ -173,7 +165,7 @@ function fillMatchDetailsPageByMatchId(id) {
                 let title = data[i].country_name + " " + data[i].league_name + ", " + data[i].match_time;
                 let t1_goals = (parseInt(data[i].match_hometeam_score) === data[i].match_hometeam_score) ? data[i].match_hometeam_score : "0";
                 let t2_goals = (parseInt(data[i].match_awayteam_score) === data[i].match_awayteam_score) ? data[i].match_awayteam_score : "0";
-                add_full_match(title, "img/team1.jpg", "img/team2.jpg", t1_goals,
+                add_full_match(title, "img/team1host.png", "img/team2enemy.png", t1_goals,
                     t2_goals, data[i].match_hometeam_name, data[i].match_awayteam_name, data[i].match_date)
                 break;
             }
@@ -216,21 +208,21 @@ function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
     $("#mathc-news-items").append('<div class="match-news-one-item">\n' +
         '    <div class="match-news-title"><h1>' + title + '</h1></div>\n' +
         '    <div class="team-imgs">\n' +
-        '        <img class="img-team1" src="' + imgT1 + '" alt="test" height="200" width="300">\n' +
+        '        <img class="img-team1" src="' + imgT1 + '" alt="test" height="300" width="300">\n' +
         '        <div class="match-news-score-box">\n' +
         '            <div class="match-news-score" id="match-news-team1-score">' + scoreT1 + '</div>\n' +
         '            <div class="match-news-score">:</div>\n' +
         '            <div class="match-news-score" id="match-news-team2-score">' + scoreT2 + '</div>\n' +
         '        </div>\n' +
         '\n' +
-        '        <img class="img-team2" src="' + imgT2 + '" alt="test" height="200" width="300">\n' +
+        '        <img class="img-team2" src="' + imgT2 + '" alt="test" height="300" width="300">\n' +
         '    </div>\n' +
         '\n' +
         '    <div id="just-opacity-team1" class="just-opacity">\n' +
-        '        <img  src="' + imgT1 + '" alt="test" height="200" width="300">\n' +
+        '        <img  src="' + imgT1 + '" alt="test" height="300" width="300">\n' +
         '    </div>\n' +
         '    <div id="just-opacity-team2" class="just-opacity">\n' +
-        '        <img  src="' + imgT2 + '" alt="test" height="200" width="300">\n' +
+        '        <img  src="' + imgT2 + '" alt="test" height="300" width="300">\n' +
         '    </div>\n' +
         '\n' +
         '\n' +
@@ -240,7 +232,7 @@ function add_full_match(title, imgT1, imgT2, scoreT1, scoreT2, T1, T2, date) {
         '        <div class="match-news-teams" id="match-news-team2">' + T2 + '</div>\n' +
         '    </div>\n' +
         '    <div class="match-news-date">' + date + '</div>\n' +
-        '    <div  class="live">\n' +
+        '    <div  class="live-twitch">\n' +
         '        <iframe\n' +
         '                src="https://player.twitch.tv/?channel=dallas&muted=true"\n' +
         '                height="310"\n' +
