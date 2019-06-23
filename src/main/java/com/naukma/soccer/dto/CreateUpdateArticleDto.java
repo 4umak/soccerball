@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @ToString
 public class CreateUpdateArticleDto {
     private String name;
-    private LocalDate create_date;
     private String content;
     private String image_link;
     private Integer championship;

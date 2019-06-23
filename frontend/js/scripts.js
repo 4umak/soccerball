@@ -258,6 +258,18 @@ function add_comments(username, content) {
         '    </div>')
 }
 
+
+function addComment() {
+    let request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:8083/users/current', true);
+    request.onload = function () {
+        // Begin accessing JSON data here
+        let data = JSON.parse(this.response);
+        add_comments(data.email, "hello");
+    };
+    request.send();
+}
+
 function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score, live) {
 
     var live_t = ''

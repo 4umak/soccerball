@@ -7,6 +7,10 @@ import com.naukma.soccer.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Component
 public class CreateUpdateArticleDtoToArticleConverter implements Converter<CreateUpdateArticleDto, Article> {
     @Autowired
@@ -19,7 +23,7 @@ public class CreateUpdateArticleDtoToArticleConverter implements Converter<Creat
     public Article convert(CreateUpdateArticleDto createUpdateArticleDto) {
         return Article.builder()
                 .content(createUpdateArticleDto.getContent())
-                .create_date(createUpdateArticleDto.getCreate_date())
+                .create_date(LocalDate.now())
                 .image_link(createUpdateArticleDto.getImage_link())
                 .name(createUpdateArticleDto.getName())
                 .country(countryService.getOne(createUpdateArticleDto.getCountry()))

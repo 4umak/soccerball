@@ -42,4 +42,9 @@ public class DefaultUserFacade implements UserFacade {
     public void registerUser(CreateUserDto userDto) {
         userService.saveUser(toClientConverter.convert(userDto));
     }
+
+    @Override
+    public Client getSessionUser() {
+        return userService.getSessionUser();
+    }
 }
