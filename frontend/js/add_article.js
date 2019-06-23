@@ -37,6 +37,7 @@ function fillChamps() {
     request.send();
 }
 
+/*
 function add_article() {
     let image = $('#im').val();
     let date = $('#date').val();
@@ -68,6 +69,7 @@ function add_article() {
     });
 
 }
+*/
 
 fillChamps();
 fillCountries();

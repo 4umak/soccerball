@@ -44,7 +44,7 @@ public class ArticleController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, path = "/add")
-    public ArticleDto createArticle(final CreateUpdateArticleDto createUpdateArticleDto) {
+    public ArticleDto createArticle(CreateUpdateArticleDto createUpdateArticleDto) {
         return articleFacade.createArticle(createUpdateArticleDto);
     }
 
