@@ -108,18 +108,6 @@ function add_hot_news_items(img, title, content) {
         '</div>')
 }
 
-function add_championship_select(value, name) {
-    var select = document.getElementById("champ");
-    select.options[select.options.length] = new Option(name, value);
-
-}
-
-function country_select(value, name) {
-    var select = document.getElementById("country");
-    select.options[select.options.length] = new Option(name, value);
-
-}
-
 function add_hot_news_item(img, title, content) {
 
     $("#hot-news-item").append('<div class="hot-news-one-item1">\n' +
@@ -276,6 +264,18 @@ function add_comments(username, content) {
         '    </div>')
 }
 
+
+function addComment() {
+    let request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:8083/users/current', true);
+    request.onload = function () {
+        // Begin accessing JSON data here
+        let data = JSON.parse(this.response);
+        add_comments(data.email, "hello");
+    };
+    request.send();
+}
+
 function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score, live) {
 
     var live_t = ''
@@ -347,8 +347,12 @@ addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2',true)
 // add_news_list_item("asdsafas")
 // add_news_list_item("afsfasd")
 // add_news_list_item("Woasfasfsadaw")
+<<<<<<< HEAD
 set_username('flo')
 add_championship_select("1", "LaLiga")
 country_select("1", "Spain")
+=======
+
+>>>>>>> 0eae15226759dc6fdf5a28fba7b27b82d2c1bc51
 
 //set_username('Flo')

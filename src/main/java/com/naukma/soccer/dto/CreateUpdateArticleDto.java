@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
@@ -11,12 +12,11 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class CreateUpdateArticleDto {
-    private Integer id;
     private String name;
-    private LocalDate create_date;
     private String content;
     private String image_link;
-    private ChampionshipDto championship;
-    private CountryDto country;
+    private Integer championship;
+    private Integer country;
 }
