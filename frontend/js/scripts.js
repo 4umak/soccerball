@@ -272,7 +272,6 @@ function add_comments(username, content) {
 
 function addMatchToList(country, championship, match_time, t1, t2, t1_score, t2_score, live) {
     $("#match-list-items").append('<div class="match-list-one-item" >\n' +
-        '\n' +
         '                <div class="header-match-one-item-date"> ' + match_time + '</div>\n' +
         '\n' +
         '                <div class="header-match-one-item-title">\n' +
