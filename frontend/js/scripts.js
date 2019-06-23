@@ -332,8 +332,7 @@ fillTodayMatches();
 //match_detail
 
 //add_full_match("TITLE/DATE", "img/team1.jpg", "img/team2.jpg", "0", "0", "Ukraine", "Russia", "20.06.2019")
-addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2',false)
-addMatchToList("Ukraine", " Cubok ", "12:12", "test1", 'test2', '1', '2',true)
+
 //addcoments
 
 
