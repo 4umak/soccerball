@@ -69,4 +69,8 @@ public class Client {
     @ToString.Exclude
     @OneToMany(mappedBy = "user")
     private Set<Article> articles = new HashSet<>();
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "client")
+    private Set<Comment> comments = new HashSet<>();
 }

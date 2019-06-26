@@ -14,6 +14,22 @@
 
     <meta charset="UTF-8">
     <title>News</title>
+    <script>
+        function add() {
+            let comment = $('textarea').val();
+            let id = window.location.search.split('newsId=')[1];
+            $.ajax
+            ({
+                url: 'http://localhost:8083/comments/' + id + '/add',
+                data: {"content": comment},
+                type: 'post',
+                datatype: 'json',
+                success: function (response) {
+                    add_new_comments(response.client.email);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <header id="header">
@@ -36,14 +52,21 @@
                 <div class="logo_img"></div>
 
             </div><!--
-        --><div class="header-menu-buttons">
+        -->
+            <div class="header-menu-buttons">
 
-            <button type="button" onclick="window.location='index.html'">News</button><!--
-        --><div class="username-name"></div><!--
-        --> <button><a href="http://localhost:63342/soccer/frontend/registration.html?_ijt=aoanslvu97njuljfidsdf1b2oo">Sign up</a></button><!--
-        --><button><a href="http://localhost:8083/login">Sign in</a></button><!--
-        --><button><a href="http://localhost:8083/perform_logout">Log out</a></button>
-        </div>
+                <button type="button" onclick="window.location='index.html'">News</button><!--
+        -->
+                <div class="username-name"></div><!--
+        -->
+                <button><a
+                        href="http://localhost:63342/soccer/frontend/registration.html?_ijt=aoanslvu97njuljfidsdf1b2oo">Sign
+                    up</a></button><!--
+        -->
+                <button><a href="http://localhost:8083/login">Sign in</a></button><!--
+        -->
+                <button><a href="http://localhost:8083/perform_logout">Log out</a></button>
+            </div>
         </div>
     </div>
 </header>
@@ -71,9 +94,9 @@
             <div class="add-comments-title-title">Comment</div>
         </div>
         <div class="textarea-container">
-            <textarea class="comment-content"></textarea>
+            <textarea class="comment-content" name="content"></textarea>
         </div>
-        <button class="add-comments-btn" onclick="add_new_comments('anonim')">add</button>
+        <button class="add-comments-btn" type="button" id="add" onclick="add()">add</button>
     </div>
 </div>
 <footer id="footer" class="footer">

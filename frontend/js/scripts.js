@@ -14,8 +14,7 @@ var element = document.getElementById('header-menu');
 var positionInfo = element.getBoundingClientRect();
 var height = positionInfo.height;
 var width = positionInfo.width;
-console.log(height)
-
+console.log(height);
 
 $(window).scroll(function () {                  // assign scroll event listener
 

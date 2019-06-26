@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -11,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class CommentDto {
     private int id;
-    private Date create_date;
+    private LocalDate create_date;
     private String content;
     private UserDto client;
     private ArticleDto article;
