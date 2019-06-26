@@ -65,14 +65,14 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `soccer`.`article`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `soccer`.`article` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `create_date` DATETIME NOT NULL,
   `content` LONGTEXT NOT NULL,
   `image_link` VARCHAR(150) NOT NULL,
   `user_id` INT(11) NOT NULL,
   `championship_id` INT(11) NULL DEFAULT NULL,
   `country_id` INT(11) NULL DEFAULT NULL,
-  `name` VARCHAR(100) NOT NULL ,
+  `name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `CountryToArticle_idx` (`country_id` ASC) VISIBLE,
   INDEX `ChampionshipToArticle_idx` (`championship_id` ASC) VISIBLE,
@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`article` (
     FOREIGN KEY (`user_id`)
     REFERENCES `soccer`.`user` (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -107,7 +108,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `soccer`.`comment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `soccer`.`comment` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `create_date` DATETIME NOT NULL,
   `content` MEDIUMTEXT NOT NULL,
   `article_id` INT(11) NOT NULL,
@@ -127,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`comment` (
     FOREIGN KEY (`client_id`)
     REFERENCES `soccer`.`user` (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 16
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -178,6 +180,7 @@ CREATE TABLE IF NOT EXISTS `soccer`.`role` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

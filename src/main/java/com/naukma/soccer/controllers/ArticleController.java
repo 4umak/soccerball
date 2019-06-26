@@ -30,8 +30,8 @@ public class ArticleController {
 
     @GetMapping
     public Page<ArticleDto> getFilteredArticles(@And({
-            @Spec(path = "championship", spec = StartingWith.class),
-            @Spec(path = "country", spec = LikeIgnoreCase.class),
+            @Spec(path = "championship.name", spec = StartingWith.class),
+            @Spec(path = "country.name", spec = LikeIgnoreCase.class),
             @Spec(path = "user", spec = LikeIgnoreCase.class),
     }) final Specification<Article> articleSpecification, final Pageable pageable) {
         return articleFacade.getFilteredArticles(articleSpecification, pageable);

@@ -97,13 +97,23 @@ function add_hot_news_items(img, title, content) {
         '</div>')
 }
 
-function add_hot_news_item(img, title, content) {
+// function get_articles_by_country(country) {
+//     let request = new XMLHttpRequest();
+//     request.open('GET', 'http://localhost:8083/articles/?country.name=' + country, true);
+//     request.onload = function () {
+//         window.location.href = window.location.href.split("/news_detail")[0] + 'index.html';
+//         let data = JSON.parse(this.response);
+//         for (let i = 0; i < data.length; i++)
+//             add_hot_news_items(data.content[i].image_link, data.content[i].name, data.content[i].content)
+//     };
+//     request.send();
+// }
 
+function add_hot_news_item(img, title, content) {
     $("#hot-news-item").append('<div class="hot-news-one-item1">\n' +
         '    <img src="' + img + '" alt="hot_img">\n' +
         '    <div class="hot-news-one-item-title1">' + title + '</div>\n' +
-        '    <div class="hot-news-one-item-content1"> ' + content +
-        '</div>')
+        '    <div class="hot-news-one-item-content1"> ' + content + '</div>')
 }
 
 function fillNews() {
