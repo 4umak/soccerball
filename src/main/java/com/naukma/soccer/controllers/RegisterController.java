@@ -22,11 +22,6 @@ public class RegisterController {
     @Autowired
     private UserFacade userFacade;
 
-    @GetMapping
-    public void test() {
-        System.out.println("work");
-    }
-
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public void processRegistration(HttpServletRequest request, HttpServletResponse response, CreateUserDto createUserDto) {
         userFacade.registerUser(createUserDto);
