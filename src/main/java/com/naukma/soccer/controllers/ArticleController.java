@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/articles")
@@ -44,8 +46,13 @@ public class ArticleController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, path = "/add")
-    public ArticleDto createArticle(CreateUpdateArticleDto createUpdateArticleDto) {
-        return articleFacade.createArticle(createUpdateArticleDto);
+    public void createArticle(HttpServletResponse response, CreateUpdateArticleDto createUpdateArticleDto) {
+        articleFacade.createArticle(createUpdateArticleDto);
+        try {
+            response.sendRedirect("http://localhost:63342/soccer/frontend/index.html?_ijt=cacjv983ukbm910lbahvbefl78");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

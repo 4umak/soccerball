@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class RegisterController {
             e.printStackTrace();
         }
         try {
+            response.addCookie(new Cookie("user", userFacade.getSessionUser().getEmail()));
             response.sendRedirect("http://localhost:63342/soccer/frontend/index.html?_ijt=cacjv983ukbm910lbahvbefl78");
         } catch (IOException e) {
             e.printStackTrace();

@@ -135,6 +135,40 @@ function set_username(username) {
 
 }
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function getUserName() {
+    // let request = new XMLHttpRequest();
+    // request.open('GET', 'http://localhost:8083/users/current', true);
+    // request.onload = function () {
+    //     // Begin accessing JSON data here
+    //     let data = JSON.parse(this.response);
+        if (getCookie("user") == null) {
+            set_username("Anonymous")
+        } else {
+            set_username(getCookie("user"));
+        }
+    // };
+    // request.send();
+}
+
+getUserName();
+
+
 function fillMatches() {
     let interesting_countries = ["41", "68", "135", "51", "46", "100", "13", "115", "151", "120", "168"];
     let request = new XMLHttpRequest();
@@ -318,5 +352,4 @@ fillNews();
 fillNewsDetailsPageByNewsId(window.location.search.split('newsId=')[1]);
 fillMatchDetailsPageByMatchId(window.location.search.split('matchId=')[1]);
 fillTodayMatches();
-set_username('flo')
 
