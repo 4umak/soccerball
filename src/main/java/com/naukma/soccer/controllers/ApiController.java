@@ -19,13 +19,13 @@ import java.time.LocalDate;
 public class ApiController {
 
     private static final String URL_WITH_PARAM = "https://apiv2.apifootball.com/?action=%s&%s" +
-            "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
+            "&APIkey=4e13de1b619129d2c759b355af66eb73810a4bc26fc6286bd3ba5420788858b0";
     private static final String URL_ACTION = "https://apiv2.apifootball.com/?action=%s" +
-            "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
+            "&APIkey=4e13de1b619129d2c759b355af66eb73810a4bc26fc6286bd3ba5420788858b0";
     private static final String URL_TWO_PARAM = "https://apiv2.apifootball.com/?action=%s&%s&%s" +
-            "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
+            "&APIkey=4e13de1b619129d2c759b355af66eb73810a4bc26fc6286bd3ba5420788858b0";
     private static final String URL_THREE_PARAM = "https://apiv2.apifootball.com/?action=%s&%s&%s&%s" +
-            "&APIkey=66d21805f03b3a565193015df5aa5615e0fe98978abf2861c5e0ccd085e1d0c6";
+            "&APIkey=4e13de1b619129d2c759b355af66eb73810a4bc26fc6286bd3ba5420788858b0";
 
     @Autowired
     private RestTemplate restTemplate;
